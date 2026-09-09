@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginx-replicaset
+  namespace: maheshking
   labels:
     app: nginx
 spec:
-  replicas: 6
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -15,7 +16,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - name: nginx-container
+        - name: nginx
           image: nginx:latest
           ports:
             - containerPort: 80
